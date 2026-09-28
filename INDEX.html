@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PD 1529 Reviewer — Property Registration Decree</title>
+<style>
+:root{
+  --ink:#1c2a24; --parchment:#f4efe4; --paper:#fffdf7; --seal:#8a1f2b;
+  --gold:#a9822c; --line:#d8cfb8; --green:#233d2f; --muted:#5b6a60;
+  --tag-yes:#2c5c3a; --tag-no:#8a1f2b; --tag-warn:#8a5a10;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --ink:#e9e4d6; --parchment:#14201a; --paper:#182620; --seal:#d9636f;
+  --gold:#d4ae5c; --line:#334a3d; --green:#bcd8c5; --muted:#9db0a3; }
+}
+:root[data-theme="dark"]{ --ink:#e9e4d6; --parchment:#14201a; --paper:#182620; --seal:#d9636f;
+  --gold:#d4ae5c; --line:#334a3d; --green:#bcd8c5; --muted:#9db0a3; }
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--parchment);color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;line-height:1.5;}
+h1,h2,h3,h4{font-family:"Iowan Old Style",Georgia,serif;font-weight:700;margin:0 0 .3em;}
+.sans{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+header{background:var(--green);color:#f4efe4;padding:1.4rem 1.2rem 1.1rem;position:relative;overflow:hidden;}
+header .crest{font-size:.72rem;letter-spacing:.04em;opacity:.75;font-family:-apple-system,sans-serif;}
+header h1{font-size:1.5rem;margin-top:.25rem;color:#fdf9ee;}
+header p{margin:.35rem 0 0;font-size:.92rem;opacity:.85;max-width:60ch;}
+.themebtn{position:absolute;top:1rem;right:1rem;background:transparent;border:1px solid rgba(255,255,255,.4);color:#f4efe4;border-radius:20px;padding:.35rem .7rem;font-size:.75rem;cursor:pointer;font-family:-apple-system,sans-serif;}
+nav{display:flex;gap:.4rem;overflow-x:auto;background:var(--paper);border-bottom:1px solid var(--line);padding:.5rem .6rem;position:sticky;top:0;z-index:5;-webkit-overflow-scrolling:touch;}
+nav button{flex:0 0 auto;background:none;border:1px solid var(--line);color:var(--ink);padding:.45rem .8rem;border-radius:6px;font-size:.82rem;cursor:pointer;font-family:-apple-system,sans-serif;white-space:nowrap;}
+nav button.active{background:var(--seal);border-color:var(--seal);color:#fff;}
+main{max-width:900px;margin:0 auto;padding:1.1rem 1rem 3rem;}
+section{display:none;animation:fade .25s ease;}
+section.active{display:block;}
+@keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;margin-bottom:1rem;}
+.card h3{color:var(--seal);font-size:1.05rem;border-bottom:1px solid var(--line);padding-bottom:.4rem;margin-bottom:.6rem;}
+.tag{display:inline-block;font-family:-apple-system,sans-serif;font-size:.68rem;font-weight:600;padding:.15rem .5rem;border-radius:10px;margin-right:.3rem;}
+.tag.date{background:#eadfb8;color:#5b4a12;}
+.tag.person{background:#d8e6da;color:var(--tag-yes);}
+.tag.trap{background:#f6d9c9;color:var(--tag-no);}
+.tag.term{background:#dde3ea;color:#2a3c5b;}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.4rem 0;}
+th,td{border:1px solid var(--line);padding:.5rem .55rem;text-align:left;vertical-align:top;}
+th{background:var(--parchment);font-family:-apple-system,sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em;color:var(--muted);}
+.overflow{overflow-x:auto;}
+.hl{background:linear-gradient(transparent 60%, #f3d477 60%);padding:0 .05em;}
+:root[data-theme="dark"] .hl, :root:not([data-theme="light"]) .hl{background:linear-gradient(transparent 55%, #6b5720 55%);}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .hl{background:linear-gradient(transparent 60%, #f3d477 60%);}}
+.timeline{border-left:2px solid var(--gold);margin-left:.6rem;padding-left:1rem;}
+.tl-item{margin-bottom:1rem;position:relative;}
+.tl-item::before{content:"";position:absolute;left:-1.31rem;top:.25rem;width:10px;height:10px;border-radius:50%;background:var(--seal);}
+.tl-item .yr{font-family:-apple-system,sans-serif;font-weight:700;color:var(--seal);font-size:.85rem;}
+.acc{border:1px solid var(--line);border-radius:8px;margin-bottom:.6rem;overflow:hidden;}
+.acc summary{cursor:pointer;padding:.6rem .8rem;font-family:-apple-system,sans-serif;font-weight:600;background:var(--parchment);list-style:none;display:flex;justify-content:space-between;align-items:center;}
+.acc summary::-webkit-details-marker{display:none;}
+.acc summary::after{content:"+";font-size:1.1rem;color:var(--seal);}
+.acc[open] summary::after{content:"–";}
+.acc .body{padding:.7rem .9rem;font-size:.92rem;}
+.trapbox{background:#fbeee6;border:1px solid #e3b79a;border-radius:8px;padding:.6rem .8rem;margin-top:.5rem;font-size:.87rem;}
+:root:not([data-theme="light"]) .trapbox{background:#2c1e1a;border-color:#5c3324;}
+:root[data-theme="dark"] .trapbox{background:#2c1e1a;border-color:#5c3324;}
+.trapbox b{color:var(--tag-no);}
+.quiz-q{margin-bottom:1rem;}
+.quiz-q p{font-weight:600;margin-bottom:.4rem;}
+.opt{display:block;width:100%;text-align:left;background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.5rem .7rem;margin-bottom:.35rem;cursor:pointer;font-family:-apple-system,sans-serif;font-size:.86rem;color:var(--ink);}
+.opt.correct{background:#d8e6da;border-color:var(--tag-yes);}
+.opt.wrong{background:#f6d9c9;border-color:var(--tag-no);}
+.exp{font-size:.85rem;color:var(--muted);margin-top:.3rem;display:none;}
+.exp.show{display:block;}
+.pillrow{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem;}
+footer{text-align:center;font-size:.78rem;color:var(--muted);padding:1.5rem 1rem 2rem;font-family:-apple-system,sans-serif;}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;}
+@media(max-width:600px){.compare{grid-template-columns:1fr;}}
+.col-a{border-left:4px solid var(--seal);padding-left:.7rem;}
+.col-b{border-left:4px solid var(--gold);padding-left:.7rem;}
+small.cite{color:var(--muted);font-family:-apple-system,sans-serif;}
+</style>
+</head>
+<body>
+<header>
+  <button class="themebtn sans" onclick="toggleTheme()">☾/☀ Theme</button>
+  <div class="crest sans">BSREM BOARD REVIEWER · REB &amp; REA</div>
+  <h1>PD 1529 — The Property Registration Decree</h1>
+  <p>High-yield reviewer for the Real Estate Broker (Special &amp; Technical) and Real Estate Appraiser (Land Management) subjects. Tap through the tabs below.</p>
+</header>
+<nav class="sans" id="nav"></nav>
+<main id="main"></main>
+<footer>For board exam review purposes · Always verify against the current PRC/LRA syllabus and the actual text of PD 1529.</footer>
+
+<script>
+const sections = [
+ {id:'overview', label:'Overview'},
+ {id:'timeline', label:'Timeline'},
+ {id:'people', label:'People'},
+ {id:'principles', label:'3 Pillars'},
+ {id:'process', label:'Registration'},
+ {id:'adverse', label:'Adverse Claim vs Lis Pendens'},
+ {id:'related', label:'Related Laws'},
+ {id:'traps', label:'Exam Traps'},
+ {id:'quiz', label:'Quiz'}
+];
+
+const nav = document.getElementById('nav');
+sections.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.textContent=s.label; b.onclick=()=>show(s.id);
+  b.id='nav-'+s.id;
+  nav.appendChild(b);
+});
+
+function show(id){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('nav-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function toggleTheme(){
+  const r=document.documentElement;
+  const cur=r.getAttribute('data-theme');
+  r.setAttribute('data-theme', cur==='dark' ? 'light' : 'dark');
+}
+
+const main = document.getElementById('main');
+main.innerHTML = `
+
+<section id="overview">
+  <div class="card">
+    <h3>What PD 1529 is</h3>
+    <p>The <b>Property Registration Decree</b> is the codified law governing the <b>Torrens system</b> of land registration in the Philippines. It amended, consolidated, and updated <span class="hl">Act No. 496 (Land Registration Act)</span> and related registration statutes into one comprehensive code.</p>
+    <div class="pillrow">
+      <span class="tag date">Signed: June 11, 1978</span>
+      <span class="tag person">Signed by Pres. Ferdinand E. Marcos, Sr.</span>
+      <span class="tag term">Implementing office: LRA (Land Registration Authority)</span>
+    </div>
+    <p><b>Purpose:</b> to strengthen the Torrens system, update registration procedure to match the 1973 Constitution and later laws, and unify judicial &amp; administrative registration under one decree.</p>
+  </div>
+  <div class="card">
+    <h3>Structure at a glance</h3>
+    <table>
+      <tr><th>Part</th><th>Covers</th></tr>
+      <tr><td>Secs. 1–13</td><td>General provisions; RTC as land registration court; LRA/Registry of Deeds</td></tr>
+      <tr><td>Secs. 14–38</td><td>Original registration (judicial confirmation of imperfect title, decree, OCT)</td></tr>
+      <tr><td>Secs. 39–50</td><td>Certificate of title — contents &amp; effect</td></tr>
+      <tr><td>Secs. 51–77</td><td>Subsequent registration — voluntary &amp; involuntary dealings</td></tr>
+      <tr><td>Secs. 78–92</td><td>Special/derivative titles: condominium, reconstitution references</td></tr>
+      <tr><td>Secs. 93–102</td><td>Assurance Fund (insurance principle)</td></tr>
+      <tr><td>Secs. 103–116</td><td>Public land patents registered under Torrens system; other special provisions</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="card">
+    <h3>From Torrens (1858) to PD 1529</h3>
+    <div class="timeline">
+      <div class="tl-item"><span class="yr">1858 — South Australia</span><br><b>Sir Robert Richard Torrens</b> introduces the Torrens system of title-by-registration, replacing deed-tracing with a state-guaranteed certificate.</div>
+      <div class="tl-item"><span class="yr">Nov. 6, 1902</span><br><b>Act No. 496</b>, the original Land Registration Act, is enacted by the Philippine Commission — introduces the Torrens system to the Philippines. Effective Feb. 1, 1903.</div>
+      <div class="tl-item"><span class="yr">1936</span><br><b>Commonwealth Act No. 141</b> (Public Land Act) governs classification &amp; disposition of alienable public land (homestead, free patent, sales patent) — a distinct but linked regime.</div>
+      <div class="tl-item"><span class="yr">1946</span><br><b>RA 26</b> — judicial reconstitution of lost/destroyed Torrens certificates (post-WWII title destruction).</div>
+      <div class="tl-item"><span class="yr">1972</span><br><b>PD 27</b> — Tenant Emancipation Decree, start of agrarian land-title reform (Emancipation Patents).</div>
+      <div class="tl-item"><span class="yr">June 11, 1978</span><br><span class="hl"><b>PD 1529</b> signed by Pres. Marcos</span>, codifying Act 496 and related decrees into the present Property Registration Decree.</div>
+      <div class="tl-item"><span class="yr">1981 (EO 649)</span><br>Land Registration Commission reorganized into the <b>Land Registration Authority (LRA)</b>, the implementing agency of PD 1529 (Registries of Deeds nationwide fall under it).</div>
+      <div class="tl-item"><span class="yr">1988</span><br><b>RA 6657 (CARL/CARP)</b> — Comprehensive Agrarian Reform Law; titles as CLOAs, registered but substantively governed by agrarian law, not PD 1529 alone.</div>
+      <div class="tl-item"><span class="yr">2021</span><br><b>RA 11573</b> amends Sec. 14 &amp; 48 of PD 1529 — simplifies proof requirements &amp; shortens possession period (20 yrs from June 12, 1945 rule relaxed) for judicial confirmation of imperfect titles.</div>
+    </div>
+    <div class="trapbox"><b>Trap:</b> PD 1529 did <b>not</b> repeal Act 496 outright — it codified/superseded its registration procedure. Act 496 principles (Torrens doctrines) are still cited by the Supreme Court; only the procedural provisions were replaced.</div>
+  </div>
+</section>
+
+<section id="people">
+  <div class="card">
+    <h3>Key people to remember</h3>
+    <table>
+      <tr><th>Person</th><th>Role</th></tr>
+      <tr><td><b>Sir Robert Torrens</b></td><td>Originator of the Torrens system, South Australia, 1858. Exam trap: he was a <span class="hl">customs official/politician, not a judge</span>.</td></tr>
+      <tr><td><b>Pres. Ferdinand E. Marcos, Sr.</b></td><td>Signed PD 1529 into law, June 11, 1978, under martial-law legislative powers (that's why it's a <i>Presidential Decree</i>, not a Republic Act).</td></tr>
+      <tr><td><b>LRA Administrator</b></td><td>Head of the Land Registration Authority; exercises direct control/supervision over all Registers of Deeds.</td></tr>
+      <tr><td><b>Register of Deeds (RD)</b></td><td>Officer in each province/city who keeps the registry, annotates the title, and issues certified copies. Registration is effected by entry in the RD's <b>Primary Entry Book (Day Book)</b>.</td></tr>
+      <tr><td><b>Land Registration Court (now RTC)</b></td><td>Court exercising original jurisdiction over land registration/confirmation proceedings (a court of record, proceeding <i>in rem</i>).</td></tr>
+      <tr><td><b>Solicitor General</b></td><td>Represents the Republic in original land registration cases (opposes/reviews applications for the government).</td></tr>
+    </table>
+    <div class="trapbox"><b>Trap:</b> Registration proceedings under PD 1529 are <b>proceedings in rem</b> — binding on the whole world upon publication, not just the parties named (unlike an ordinary civil action <i>in personam</i>).</div>
+  </div>
+</section>
+
+<section id="principles">
+  <div class="card">
+    <h3>The three pillars of the Torrens system</h3>
+    <details class="acc" open>
+      <summary>1. Mirror Principle <span class="tag term">core</span></summary>
+      <div class="body">The certificate of title <span class="hl">mirrors</span> — accurately and completely reflects — the true, current state of ownership and all subsisting liens/encumbrances on the land. A buyer is entitled to rely on what is written on the face of the title.
+      <div class="trapbox"><b>Trap:</b> This is why a buyer generally need <i>not</i> go beyond the certificate — but the mirror principle yields to actual/constructive notice of a defect, and does NOT protect a buyer in bad faith.</div></div>
+    </details>
+    <details class="acc">
+      <summary>2. Curtain Principle</summary>
+      <div class="body">Once title is registered, a <span class="hl">"curtain"</span> is drawn over the property's past — a purchaser need not investigate the history/root of title before the current certificate. The Torrens certificate is treated as the sole and conclusive evidence of ownership as of the date of registration.
+      <div class="trapbox"><b>Trap:</b> Board questions often blend Mirror and Curtain — Mirror = "what you see is what's true"; Curtain = "you don't need to look behind/before it." Distinguish them precisely if asked to define each.</div></div>
+    </details>
+    <details class="acc">
+      <summary>3. Indefeasibility (Insurance/Assurance Principle)</summary>
+      <div class="body">A Torrens title becomes <span class="hl">incontrovertible and indefeasible after one (1) year</span> from the date of entry of the decree of registration (Sec. 32). Even if a title was wrongfully obtained, an <b>innocent purchaser for value (IPV)</b> who relies on it is protected. Those unjustly deprived of land through registration may claim against the <b>Assurance Fund</b> (Secs. 93–102) — this is sometimes separately called the <b>Insurance Principle</b>.
+      <div class="trapbox"><b>Trap:</b> "Indefeasible after 1 year" does <b>not</b> mean the title can never be questioned — fraud, forgery of the whole instrument, or an action for reconveyance based on implied trust (within 4 or 10 years depending on ground) can still lie, especially if the property has not passed to an IPV.</div></div>
+    </details>
+  </div>
+</section>
+
+<section id="process">
+  <div class="card">
+    <h3>Original registration — Judicial vs. Administrative</h3>
+    <div class="compare">
+      <div class="col-a">
+        <h4>Judicial (Secs. 14–38)</h4>
+        <p>Ordinary registration proceeding before the RTC (land registration court). Applicant must prove open, continuous, exclusive, notorious possession (OCEN) in the concept of owner, per the periods under Sec. 14 (as amended by RA 11573, 2021). Ends in a <b>Decree of Registration</b> issued by the LRA, then an <b>Original Certificate of Title (OCT)</b>.</p>
+      </div>
+      <div class="col-b">
+        <h4>Administrative (Sec. 103, CA 141)</h4>
+        <p>Disposition of alienable public land via <b>patent</b> (homestead, free, sales, special patent) issued by the DENR/CENRO. Upon registration with the RD, a patent is <span class="hl">as good as, and has the same legal effect as, a decree registered</span> through judicial proceedings — it also becomes an OCT.</p>
+      </div>
+    </div>
+    <div class="trapbox"><b>Trap:</b> A patent is administrative in origin, but once registered it becomes <i>judicial-equivalent</i> in effect — indefeasibility attaches the same way, generally after one year from issuance/registration.</div>
+  </div>
+  <div class="card">
+    <h3>Subsequent registration — Voluntary vs. Involuntary</h3>
+    <div class="compare">
+      <div class="col-a">
+        <h4>Voluntary dealings (Secs. 51–58)</h4>
+        <p>Owner's own act: sale, donation, mortgage, lease. Requires presentation of the <b>owner's duplicate certificate</b>. Registered by annotation → produces a new <b>Transfer Certificate of Title (TCT)</b> when ownership transfers.</p>
+      </div>
+      <div class="col-b">
+        <h4>Involuntary dealings (Secs. 69–76+)</h4>
+        <p>Done without/against the owner's consent: attachment, levy on execution, adverse claim, notice of lis pendens. Does <b>not</b> require surrender of the owner's duplicate — annotated directly on the original title in the RD upon entry in the Day Book.</p>
+      </div>
+    </div>
+    <p class="sans" style="font-size:.85rem;color:var(--muted)">Golden rule (Sec. 51–52): registration is the operative act that conveys/affects the land <i>as to third persons</i>. Between the parties themselves, a sale is valid even unregistered — registration is for binding effect on the whole world.</p>
+  </div>
+</section>
+
+<section id="adverse">
+  <div class="card">
+    <h3>Adverse Claim (Sec. 70) vs. Notice of Lis Pendens (Sec. 76) — a favorite board pair</h3>
+    <div class="overflow">
+    <table>
+      <tr><th></th><th>Adverse Claim</th><th>Notice of Lis Pendens</th></tr>
+      <tr><td>Legal basis</td><td>Sec. 70, PD 1529</td><td>Sec. 76, PD 1529 (also Rule 13, Rules of Court)</td></tr>
+      <tr><td>Purpose</td><td>Protects a claim/interest on the property <span class="hl">not otherwise registrable</span> (e.g., an unregistered contract, equitable right)</td><td>Warns the public that the property is <span class="hl">involved in pending litigation</span> affecting title or right of possession</td></tr>
+      <tr><td>Requirement to annotate</td><td>Sworn/verified statement filed with the RD stating the claimant's right &amp; how it arose</td><td>Must arise from an actual pending court case (or admin/quasi-judicial proceeding affecting title) — filed by a party to the case</td></tr>
+      <tr><td>Effectivity</td><td><span class="hl">30 days</span> from date of registration, unless a case to cancel/sustain it is filed within that period</td><td><span class="hl">No fixed expiry</span> — stays until the case is decided/dismissed or the court orders its cancellation</td></tr>
+      <tr><td>Cancellation</td><td>By the parties' agreement, or by court order after a verified petition/hearing</td><td>By the court where the action is pending, motu proprio or upon proper motion</td></tr>
+      <tr><td>Second adverse claim on same ground</td><td>Not allowed — cannot file successive adverse claims based on the same claim</td><td>N/A</td></tr>
+    </table>
+    </div>
+    <div class="trapbox"><b>Board trap:</b> Many examinees think an adverse claim, once annotated, is permanent like lis pendens. It is <b>not</b> — it lapses in <b>30 days</b> unless judicially sustained. Also: lis pendens requires an actual case in court; an adverse claim does not.</div>
+  </div>
+</section>
+
+<section id="related">
+  <div class="card">
+    <h3>PD 1529 vs. related laws — know the distinction</h3>
+    <div class="overflow">
+    <table>
+      <tr><th>Law</th><th>What it governs</th><th>Relation to PD 1529</th></tr>
+      <tr><td><b>Act 496 (1902)</b></td><td>Original Land Registration Act; introduced Torrens system</td><td>Codified/superseded procedurally by PD 1529; doctrines still cited</td></tr>
+      <tr><td><b>CA 141 (1936)</b> Public Land Act</td><td>Classification &amp; disposition of alienable/disposable public land (patents)</td><td>Substantive law on how public land is acquired; PD 1529 Sec. 103 registers the resulting patent</td></tr>
+      <tr><td><b>RA 26 (1946)</b></td><td>Judicial reconstitution of lost/destroyed original &amp; transfer certificates</td><td>Special/parallel procedure; PD 1529 is the general registration law</td></tr>
+      <tr><td><b>PD 27 / RA 6657 (CARP)</b></td><td>Agrarian reform — redistribution of agricultural land (Emancipation Patents, CLOAs)</td><td>Substantive agrarian law; resulting titles are still registered/annotated under the Torrens system of PD 1529</td></tr>
+      <tr><td><b>Civil Code (RA 386)</b></td><td>Substantive law of ownership, modes of acquiring/transferring property</td><td>PD 1529 is largely procedural — it registers rights the Civil Code creates; registration ≠ source of ownership between the parties</td></tr>
+      <tr><td><b>RA 9646</b> RESA Law</td><td>Regulates real estate service practice (brokers, appraisers, consultants)</td><td>Professional/regulatory law — separate subject, but brokers/appraisers must apply PD 1529 concepts in practice</td></tr>
+      <tr><td><b>RA 11573 (2021)</b></td><td>Amends Secs. 14 &amp; 48, PD 1529</td><td>Directly amendatory — simplified proof &amp; timelines for judicial confirmation of title</td></tr>
+    </table>
+    </div>
+    <div class="trapbox"><b>Trap:</b> Registration under PD 1529 is <b>not itself a mode of acquiring ownership</b> under the Civil Code (which lists occupation, donation, succession, prescription, tradition, intellectual creation, and law). Registration is confirmatory/protective — it does not create title out of nothing (except for the strong presumptive/curtailing effect once decreed).</div>
+  </div>
+</section>
+
+<section id="traps">
+  <div class="card">
+    <h3>Rapid-fire exam traps</h3>
+    <details class="acc" open><summary>"A title is absolutely indefeasible, period."</summary><div class="body">False as stated — indefeasibility attaches <b>after 1 year</b> from the decree, and even then fraud/forgery and rights of an IPV interact; a title obtained through <b>void</b> instruments confers no rights even to a later transferee unless that transferee is an innocent purchaser for value.</div></details>
+    <details class="acc"><summary>"Unregistered sale is void."</summary><div class="body">False. Between the vendor and vendee, an unregistered sale of registered land is <b>valid and binding</b>. Registration only affects <i>third persons</i> — it is not required for validity between the parties (Sec. 51).</div></details>
+    <details class="acc"><summary>"Adverse claim and lis pendens are the same thing."</summary><div class="body">False — different legal basis, different effectivity period (30 days vs. no fixed period), different triggering requirement (sworn statement vs. actual pending case).</div></details>
+    <details class="acc"><summary>"The government can never recover land wrongfully titled."</summary><div class="body">False — the State, through the Solicitor General, may file an action for <b>reversion</b> if land not alienable/disposable at the time was erroneously titled; indefeasibility does not vest title over inalienable public land or the sea, forests, etc.</div></details>
+    <details class="acc"><summary>"OCT and TCT are different registration regimes."</summary><div class="body">False — both are Torrens certificates under the same PD 1529 regime. <b>OCT</b> = first title issued (from a decree or patent); <b>TCT</b> = issued upon subsequent transfer, cancelling the OCT/prior TCT.</div></details>
+    <details class="acc"><summary>"PD 1529 is a Republic Act."</summary><div class="body">False — it is a <b>Presidential Decree</b>, issued by Pres. Marcos under martial-law legislative power (1978), which is why it's "PD," not "RA."</div></details>
+    <details class="acc"><summary>"Registration proceeding is in personam."</summary><div class="body">False — it is a proceeding <b>in rem</b>; publication of the notice of initial hearing binds the whole world, not just named oppositors.</div></details>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="card">
+    <h3>Quick self-check (5 items)</h3>
+    <div id="quizWrap"></div>
+  </div>
+</section>
+`;
+
+const quiz = [
+ {q:"Under the Torrens system, the principle that a buyer need not go beyond what is stated on the face of the certificate of title is called the:",
+  opts:["Mirror Principle","Curtain Principle","Indefeasibility Principle","Ministerial Duty Principle"], a:0,
+  exp:"Mirror Principle: the title reflects the true state of ownership; a buyer may rely on it."},
+ {q:"An adverse claim annotated on a certificate of title is effective for how many days unless a case to cancel or sustain it is filed?",
+  opts:["15 days","30 days","60 days","1 year"], a:1,
+  exp:"Sec. 70, PD 1529 — 30 days from the date of registration of the adverse claim."},
+ {q:"PD 1529 was signed into law by which president, and in what year?",
+  opts:["Corazon Aquino, 1987","Ferdinand Marcos, 1978","Manuel Roxas, 1946","Diosdado Macapagal, 1962"], a:1,
+  exp:"President Ferdinand E. Marcos, Sr., signed PD 1529 on June 11, 1978."},
+ {q:"A Torrens title generally becomes incontrovertible and indefeasible after how long from entry of the decree of registration?",
+  opts:["6 months","1 year","5 years","It is indefeasible immediately"], a:1,
+  exp:"Sec. 32, PD 1529 — one (1) year from entry of the decree, subject to exceptions like fraud vs. non-innocent holders and reversion for inalienable land."},
+ {q:"Which annotation requires an actual pending court case affecting the title or possession of the property?",
+  opts:["Adverse claim","Notice of lis pendens","Mortgage annotation","Assurance fund claim"], a:1,
+  exp:"Notice of lis pendens (Sec. 76) presupposes an actual pending litigation; an adverse claim does not."}
+];
+
+const qw = document.getElementById('quizWrap');
+quiz.forEach((item,qi)=>{
+  const box=document.createElement('div'); box.className='quiz-q';
+  const p=document.createElement('p'); p.textContent=(qi+1)+". "+item.q; box.appendChild(p);
+  item.opts.forEach((opt,oi)=>{
+    const b=document.createElement('button'); b.className='opt sans'; b.textContent=opt;
+    b.onclick=()=>{
+      const buttons=box.querySelectorAll('.opt');
+      buttons.forEach((bb,bi)=>{
+        bb.disabled=true;
+        if(bi===item.a) bb.classList.add('correct');
+        else if(bi===oi) bb.classList.add('wrong');
+      });
+      box.querySelector('.exp').classList.add('show');
+    };
+    box.appendChild(b);
+  });
+  const exp=document.createElement('div'); exp.className='exp sans'; exp.textContent="✓ "+item.exp;
+  box.appendChild(exp);
+  qw.appendChild(box);
+});
+
+show('overview');
+</script>
+</body>
+</html>
